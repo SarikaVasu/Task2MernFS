@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        main {
+            font-family:'Times New Roman', Times, serif;
+        }
+        .box {
+            width: 100%;
+            background-color: whitesmoke;
+        }
+        .animation {
+            width: 400px;
+            height: 200px;
+            
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .heading {
+            color: darkblue;
+            font-weight: bold;
+            font-size: 1.8rem;
+        }
+        .button {
+            border-radius: 2px;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            height: 1.8rem;
+            text-align: center;
+            border: 1px solid gray;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        #myIcon {
+            width: 60%;
+            padding: 2rem;
+            position: relative;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form>
+            <div class="container">
+                <div class="box">
+                    <div class="animation">
+                        <img id = "myIcon" src = "train.jpg" alt="train">
+                    </div>
+                </div>
+                <div class="container content">
+                    <div class="heading">
+                        <p>Click the following buttons to handle animation</p>
+                    </div>
+                    <div class="buttons">
+                        <input type = "button" class="button" value = "Start" onclick = "moveImg();" />
+                        <input type = "button" class="button" value = "Stop" onclick = "stop();" />
+                    </div>
+                </div>
+            </div>
+        </form>
+    </main>
+    
+    <script>
+        var imgObj = null;
+        var animate ;
+        function init() {
+            imgObj = document.getElementById('myIcon');
+            imgObj.style.position= 'relative'; 
+           imgObj.style.left = '0px'; 
+        }
+        function moveImg() {
+           imgObj.style.left = parseInt(imgObj.style.left) + 10 + 'px';
+           animate = setTimeout(moveImg,20);    
+        }
+            function stop() {
+               clearTimeout(animate);
+               imgObj.style.left = '0px'; 
+            }
+            
+            window.onload = init;
+    </script>
+</body>
+</html>

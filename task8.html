@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        div {
+            display: flex;
+            width: 80%;
+            height: auto;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        form button {
+            margin-top: 1rem;
+        }
+        #reenter {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="container">
+            <form>
+                <label for="" class="form-label"><strong>Enter a string</strong></label>
+                <input type="text" id="str" class="form-control">
+                <button class="btn btn-primary" onclick="reverse()">Reverse!</button>
+            </form>
+        </div>
+        <div class="container">
+            <p id="answer"></p>
+        </div>
+        <div class="container" id="reenter">
+            <button class="btn btn-light">Reenter</button>
+        </div>
+    </main>
+
+    <script>
+
+        function reverse()
+        {
+            event.preventDefault();
+            const string= document.getElementById("str").value;
+            ans = string.split("").sort().join("");
+            const writeAns = document.getElementById("answer");
+            console.log(writeAns);
+            writeAns.style.fontWeight = "bold";
+            writeAns.style.color = "red";
+            writeAns.innerHTML = `<p>The passed string with letters in alphabetical order is ${ans}.</p>`;
+            const btn1 = document.getElementById("reenter");
+            btn1.style.display = "flex";
+        }
+        const btn1_1 = document.getElementById("reenter");
+        btn1_1.addEventListener("click", (event) => {
+            location.reload();
+        });
+    </script>   
+</body>
+</html>

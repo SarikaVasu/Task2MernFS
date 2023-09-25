@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        article {
+            text-align: start;
+        }
+        input,textarea {
+            border: 2px solid red;
+        }
+        .row {
+            display: flex;
+            margin: 1rem;
+        }
+        .label {
+            width: 4rem;
+            text-align: end;
+            padding-right: 0.5rem;
+        }
+        .inpBox {
+            margin-right: 3rem;
+        }
+        .invalid {
+            color: red;
+            width: 10px;
+            text-wrap: nowrap;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form action="" onchange="validate()" onsubmit="submitForm()">
+            <div class="container">
+                <div class="row">
+                    <article class="label"><label for="">Name:</label></article>
+                    <article class="inpBox"><input type="text" class="inp"></article>
+                    <article class="invalid">This field is required</article>
+                </div>
+                <div class="row">
+                    <article class="label"><label for="">Email:</label></article>
+                    <article class="inpBox"><input type="email" class="inp"></article>
+                    <article class="invalid">A valid email address is required</article>
+                </div>
+                <div class="row">
+                    <article class="label"><label for="">Website:</label></article>
+                    <article class="inpBox"><input type="text" class="inp"></article>
+                    <article class="invalid">A valid url is required</article>
+                </div>
+                <div class="row">
+                    <article class="label"><label for="">Message:</label></article>
+                    <article class="inpBox"><textarea name="" id="" cols="30" rows="6" class="inp"></textarea></article>
+                    <article class="invalid">This field is required</article>
+                </div>
+                <div class="row">
+                    <article class="label"></article>
+                    <article><button>Submit</button></article>
+                </div>
+            </div>
+        </form>
+    </main>
+    <script>
+        const inpNode = document.querySelectorAll(".inp");
+        const invalidNode = document.querySelectorAll(".invalid");
+        const validate = () => {
+            event.preventDefault();
+            console.log(inpNode);
+            for(let i=0;i<inpNode.length;i++) {
+                if(inpNode[i].value.length) {
+                    invalidNode[i].style.display = "none";
+                    inpNode[i].style.borderColor = "black";
+                } else {
+                    invalidNode[i].style.display = "flex";
+                }
+            }
+        };
+        const submitForm = () => {
+            event.preventDefault();
+            console.log("Hello");
+            let clear = true;
+            for(let i=0;i<inpNode.length;i++) {
+                console.log(inpNode[i].value.length);
+                if(inpNode[i].value.length === 0) {
+                    console.log(inpNode[i].value.length);
+                    clear = false;
+                }
+            }
+            if(!clear) {
+                alert("Fill the form completely!");
+            } else {
+                alert("Submitted successfully!");
+                location.reload();
+            }
+        };
+    </script>
+</body>
+</html>

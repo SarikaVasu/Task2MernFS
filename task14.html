@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        main {
+            display: flex;
+            justify-content: center;
+            font-family:'Times New Roman', Times, serif;
+        }
+        div {
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0.5rem;
+            margin: 2rem;
+            background-image: linear-gradient(rgb(234, 234, 178),pink,rgb(155, 93, 155));
+         
+        }
+        form {
+            width:90%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        h1 {
+            color: darkblue;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        th {
+            text-align: end;
+            text-wrap: nowrap;
+        }
+        label {
+            padding-right: 1rem;
+        }
+        a {
+            color: darkblue;
+        }
+        button {
+            background-color: red;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            border: 2px solid black;
+            border-radius: 1rem;
+            color: white;
+            text-decoration: underline;
+        }
+        .inp {
+            width: 60%;
+        }
+        .inpBox {
+            width: 100%;
+        }
+        .invalid {
+            color: red;
+            text-wrap: nowrap;
+            padding-left: 1rem;
+        }
+        #register {
+            color: white;
+        }
+        @media screen and (max-width: 1000px) {
+            th {
+                text-wrap: wrap;
+            }
+            .invalid {
+                text-wrap: wrap;
+            }
+        }
+        @media screen and (max-width: 700px) {
+            main {
+                background-image: linear-gradient(rgb(234, 234, 178),pink,rgb(155, 93, 155));
+            }
+            div {
+                width: 100%;
+            }
+            form {
+                padding: 0rem;
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <div class="formBox">
+            <form action="" onchange="validate (), error()" onsubmit="formRegister()">
+                <h1>Registration form</h1>
+                <table>
+                    <tr>
+                        <th><label for="firstName">First Name</label></th>
+                        <td class="inp"><input type="text" id="firstName" class="inpBox"></td>
+                        <td><p class="invalid">POOR</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="lastName">Last Name</label></th>
+                        <td class="inp"><input type="text" id="lastName" class="inpBox"></td>
+                        <td><p class="invalid">POOR</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="email">Email</label></th>
+                        <td class="inp"><input type="email" id="email" class="inpBox"></td>
+                        <td><p class="invalid">POOR</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="password">Password</label></th>
+                        <td class="inp"><input type="password" id="password" class="inpBox"></td>
+                        <td><p class="invalid">POOR</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="reEnterPassword">Re-enter Password</label></th>
+                        <td class="inp"><input type="password" id="reEnterPassword" class="inpBox"></td>
+                        <td><p class="invalid">POOR OR MISMATCH</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="gender" for="gender" class="gender" id="gender">Gender</label></th>
+                        <td class="inp">
+                            <input type="radio" name="gender" id="male" value="male">Male
+                            <br>
+                            <input type="radio" name="gender" id="female" value="female">Female
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label for="age">Age</label></th>
+                        <td class="inp"><input type="number" id="age" class="inpBox"></td>
+                        <td><p class="invalid">POOR</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="phoneNumber">Phone Number</label></th>
+                        <td class="inp"><input type="tel" id="phoneNumber" class="inpBox"></td>
+                        <td><p class="invalid">POOR</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="address">Address</label></th>
+                        <td class="inp"><textarea name="address" id="address" cols="30" rows="4" class="inpBox"></textarea></td>
+                        <td><p class="invalid">POOR</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="state">State</label></th>
+                        <td class="inp"><input type="text" id="state" class="inpBox"></td>
+                        <td><p class="invalid">POOR</p></td>
+                    </tr>
+                    <tr>
+                        <th><label for="country">Country</label></th>
+                        <td class="inp">
+                            <select name="country" id="country">
+                                <option>Choose your country</option>
+                                <option value="india">India</option>
+                                <option value="usa">USA</option>
+                                <option value="uk">UK</option>
+                                <option value="south korea">South Korea</option>
+                                <option value="others">Others</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th><label id="languagesKnown">Languages Known</label></th>
+                        <td class="inp">
+                            <input type="checkbox" name="languagesKnown" id="english" value="english">English
+                            <input type="checkbox" name="languagesKnown" id="kannada" value="kannada">Kannada
+                            <input type="checkbox" name="languagesKnown" id="hindi" value="hindi">Hindi
+                            <input type="checkbox" name="languagesKnown" id="telugu" value="telugu">Telugu
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            <article>
+                                <input type="checkbox" id="declaration">Hereby I declare all the given details are true
+                            </article>
+                            <article class="text-end">
+                                <p>Login in to <a href="https://ethnus.com/">Ethnus</a> website</p>
+                            </article>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" class="text-center"><button type="submit"><a href="success.html" style="pointer-events: none;" id="register">REGISTER</a></button></td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </main>
+    <script>
+        const check = document.querySelectorAll(".inpBox");
+        const invalid = document.querySelectorAll(".invalid");
+        console.log(invalid);
+        console.log(check);
+       
+        let checkObj = {
+                firstName: check[0].value,
+                lastNmae: check[1].value,
+                email: check[2].value,
+                password: check[3].value,
+                reEnterPassword: check[4].value,
+                age: check[5].value,
+                phoneNumber: check[6].value,
+                address: check[7].value,
+                state: check[8].value
+        };
+        
+        const validate = () => {
+            event.preventDefault();
+            for(let i=0;i<check.length;i++)
+            {
+                if(check[i].value.length !==0) {
+                    if(i !== 4) {
+                        invalid[i].style.display = "none";
+                    }
+                    else if(i === 4) {
+                        if(check[3].value === check[4].value) {
+                            invalid[4].style.display = "none";
+                        } else {
+                            invalid[4].style.display = "flex";
+                        }
+                    }
+                } else {
+                    invalid[i].style.display = "flex";
+                }
+            }
+        };
+        const formRegister = () => {
+            event.preventDefault();
+            let clear = true;
+            let formDetails = [];
+            for(let a=0;a<check.length;a++) {
+                formDetails[a] = check[a].value;
+                if(!check[a].value) {
+                    clear = false;
+                    console.log("Problem1");
+                }
+            }
+            //gender
+            const genderNode = document.getElementsByName("gender");
+            let gender = '';
+            for(let y=0;y<genderNode.length;y++) {
+                if(genderNode[y].checked) {
+                    gender=genderNode[y].value;
+                }
+            }
+            console.log(gender);
+            formDetails.push(gender);
+            //country
+            const country = document.getElementById("country").value;
+            console.log(country);
+            formDetails.push(country);
+            //languages
+            const langNode = document.getElementsByName("languagesKnown");
+            let langArr = [];
+            for(let z=0;z<langNode.length;z++) {
+                if(langNode[z].checked) {
+                    langArr.push(langNode[z].value);
+                    console.log(langNode[z].value);
+                }
+            }
+            console.log(langArr);
+            formDetails.push(langArr);
+            //declaration
+            const declaration = document.getElementById("declaration").checked;
+            console.log(declaration);
+            formDetails.push(declaration);
+            if(!declaration) {
+                clear = false;
+                console.log("Problem2");
+            }
+            if(clear) {
+                window.location = "success.html";
+            } else {
+                alert("Fill the form completely!");
+            }
+        };
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            box-sizing: border-box;
+        }
+        body {
+            padding-top: 2rem;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+        }
+        button {
+            border-radius: 0.15rem;
+            border: 1px solid black;
+            padding: 0.05rem;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            text-align: center;
+            background-color: rgba(209, 208, 208, 0.441);
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .inner {
+            padding-bottom: 1rem;
+        }
+        #dateBlock, #timeBlock {
+            height: 10px;
+            text-align: start;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="container inner">
+            <button onclick="dateFunction()" id="date">show date</button>
+            <div>
+                <p id="dateBlock"></p>
+            </div> 
+        </div>
+        <div class="container">
+            <button onclick="timeFunction()" id="time">show Time</button>
+            <div>
+                <p id="timeBlock"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        const dateFunction = () => {
+            const d = new Date();
+            const date = d.getDate();
+            const monthNo = d.getMonth();
+            const year = d.getFullYear();
+            let month='';
+            switch(monthNo) {
+                case 0:
+                    month = "January";
+                    break;
+                case 1:
+                    month = "February";
+                    break;
+                case 2:
+                    month = "March";
+                    break;
+                case 3:
+                    month = "April";
+                    break;
+                case 4:
+                    month = "May";
+                    break;
+                case 5:
+                    month = "June";
+                    break;
+                case 6:
+                    month = "July";
+                    break;
+                case 7:
+                    month = "August";
+                    break;
+                case 8:
+                    month = "September";
+                    break;
+                case 9:
+                    month = "October";
+                    break;
+                case 10:
+                    month = "November";
+                    break;
+                case 11:
+                    month = "December";
+                    break;
+            }
+            Result1 =date + "/" + month + "/" + year;
+            console.log(Result1);
+            document.getElementById("dateBlock").innerHTML = `${Result1}`;
+            
+        }
+        const timeFunction = () => {
+            const da = new Date();
+            Result2 = da;
+            document.getElementById("timeBlock").innerHTML = `${Result2}`;
+        }   
+    </script>
+</body>
+</html>
+
+
